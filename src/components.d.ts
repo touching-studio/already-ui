@@ -13,6 +13,7 @@ export namespace Components {
         "sm": number;
         "xl": number;
         "xs": number;
+        "xxl": number;
     }
     interface AlreadyContainer {
     }
@@ -61,6 +62,7 @@ declare namespace LocalJSX {
         "sm"?: number;
         "xl"?: number;
         "xs"?: number;
+        "xxl"?: number;
     }
     interface AlreadyContainer {
     }

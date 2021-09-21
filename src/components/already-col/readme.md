@@ -14,6 +14,7 @@
 | `sm`     | `sm`      |             | `number` | `undefined` |
 | `xl`     | `xl`      |             | `number` | `undefined` |
 | `xs`     | `xs`      |             | `number` | `12`        |
+| `xxl`    | `xxl`     |             | `number` | `undefined` |
 
 
 ## Methods

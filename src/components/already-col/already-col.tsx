@@ -33,6 +33,10 @@ export class AlreadyCol implements ComponentInterface {
     return this.xl || this.actualLg;
   }
 
+  private get actualXxl() {
+    return this.xxl || this.actualXl;
+  }
+
   @Element() hostElement: HTMLAlreadyColElement;
 
   @Prop({ reflect: true }) xs: number = 12;
@@ -40,10 +44,13 @@ export class AlreadyCol implements ComponentInterface {
   @Prop({ reflect: true }) md: number;
   @Prop({ reflect: true }) lg: number;
   @Prop({ reflect: true }) xl: number;
+  @Prop({ reflect: true }) xxl: number;
 
   @Method()
   async rowWidthChanged(width: number) {
-    if (width >= wrappedViewBreakpoints.xl) {
+    if (width >= wrappedViewBreakpoints.xxl) {
+      this.fraction = this.actualXxl;
+    } else if (width >= wrappedViewBreakpoints.xl) {
       this.fraction = this.actualXl;
     } else if (width >= wrappedViewBreakpoints.lg) {
       this.fraction = this.actualLg;
