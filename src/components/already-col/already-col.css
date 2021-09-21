@@ -1,0 +1,12 @@
+:host {
+  --fraction: 4;
+
+  display: inline-flex;
+  width: calc(100% / var(--base-column-count) * var(--fraction));
+  margin-right: -5px; /* TODO temp fix of item margins */
+}
+
+::slotted(*) {
+  height: 100%;
+  width: 100%;
+}
