@@ -14,6 +14,8 @@ export namespace Components {
         "xl": number;
         "xs": number;
     }
+    interface AlreadyContainer {
+    }
     interface AlreadyGrid {
         "baseColumnCount": number;
     }
@@ -26,6 +28,12 @@ declare global {
     var HTMLAlreadyColElement: {
         prototype: HTMLAlreadyColElement;
         new (): HTMLAlreadyColElement;
+    };
+    interface HTMLAlreadyContainerElement extends Components.AlreadyContainer, HTMLStencilElement {
+    }
+    var HTMLAlreadyContainerElement: {
+        prototype: HTMLAlreadyContainerElement;
+        new (): HTMLAlreadyContainerElement;
     };
     interface HTMLAlreadyGridElement extends Components.AlreadyGrid, HTMLStencilElement {
     }
@@ -41,6 +49,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "already-col": HTMLAlreadyColElement;
+        "already-container": HTMLAlreadyContainerElement;
         "already-grid": HTMLAlreadyGridElement;
         "already-row": HTMLAlreadyRowElement;
     }
@@ -53,6 +62,8 @@ declare namespace LocalJSX {
         "xl"?: number;
         "xs"?: number;
     }
+    interface AlreadyContainer {
+    }
     interface AlreadyGrid {
         "baseColumnCount"?: number;
     }
@@ -60,6 +71,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "already-col": AlreadyCol;
+        "already-container": AlreadyContainer;
         "already-grid": AlreadyGrid;
         "already-row": AlreadyRow;
     }
@@ -69,6 +81,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "already-col": LocalJSX.AlreadyCol & JSXBase.HTMLAttributes<HTMLAlreadyColElement>;
+            "already-container": LocalJSX.AlreadyContainer & JSXBase.HTMLAttributes<HTMLAlreadyContainerElement>;
             "already-grid": LocalJSX.AlreadyGrid & JSXBase.HTMLAttributes<HTMLAlreadyGridElement>;
             "already-row": LocalJSX.AlreadyRow & JSXBase.HTMLAttributes<HTMLAlreadyRowElement>;
         }

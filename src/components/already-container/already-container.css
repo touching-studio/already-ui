@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+::slotted(*) {
+  max-width: var(--content-max-width);
+  margin: auto;
+}
