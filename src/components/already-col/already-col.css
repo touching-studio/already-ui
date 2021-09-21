@@ -1,7 +1,5 @@
 :host {
-  display: block;
-  float: left;
-  width: calc(100% / var(--base-column-count) * var(--fraction));
+  flex: calc(100% / var(--base-column-count) * var(--fraction));
 }
 
 ::slotted(*) {
