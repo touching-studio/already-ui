@@ -1,0 +1,1 @@
+import{p as r,b as o}from"./p-5215ef7c.js";(()=>{const o=import.meta.url,p={};return""!==o&&(p.resourcesUrl=new URL(".",o).href),r(p)})().then((r=>o([],r)));
