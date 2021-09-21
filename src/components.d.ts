@@ -6,56 +6,71 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface AlreadyCol {
+        "lg": number;
+        "md": number;
+        "rowWidthChanged": (width: number) => Promise<void>;
+        "sm": number;
+        "xl": number;
+        "xs": number;
+    }
+    interface AlreadyGrid {
+        "baseColumnCount": number;
+    }
+    interface AlreadyRow {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAlreadyColElement extends Components.AlreadyCol, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAlreadyColElement: {
+        prototype: HTMLAlreadyColElement;
+        new (): HTMLAlreadyColElement;
+    };
+    interface HTMLAlreadyGridElement extends Components.AlreadyGrid, HTMLStencilElement {
+    }
+    var HTMLAlreadyGridElement: {
+        prototype: HTMLAlreadyGridElement;
+        new (): HTMLAlreadyGridElement;
+    };
+    interface HTMLAlreadyRowElement extends Components.AlreadyRow, HTMLStencilElement {
+    }
+    var HTMLAlreadyRowElement: {
+        prototype: HTMLAlreadyRowElement;
+        new (): HTMLAlreadyRowElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "already-col": HTMLAlreadyColElement;
+        "already-grid": HTMLAlreadyGridElement;
+        "already-row": HTMLAlreadyRowElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface AlreadyCol {
+        "lg"?: number;
+        "md"?: number;
+        "sm"?: number;
+        "xl"?: number;
+        "xs"?: number;
+    }
+    interface AlreadyGrid {
+        "baseColumnCount"?: number;
+    }
+    interface AlreadyRow {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "already-col": AlreadyCol;
+        "already-grid": AlreadyGrid;
+        "already-row": AlreadyRow;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "already-col": LocalJSX.AlreadyCol & JSXBase.HTMLAttributes<HTMLAlreadyColElement>;
+            "already-grid": LocalJSX.AlreadyGrid & JSXBase.HTMLAttributes<HTMLAlreadyGridElement>;
+            "already-row": LocalJSX.AlreadyRow & JSXBase.HTMLAttributes<HTMLAlreadyRowElement>;
         }
     }
 }
