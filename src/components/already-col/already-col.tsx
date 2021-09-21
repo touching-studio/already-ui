@@ -1,6 +1,6 @@
 import { Component, Host, h, ComponentInterface, Prop, Element, Method } from '@stencil/core';
 import { updateCSSVariable } from '../../utils/update-css-variable';
-import { viewBreakpoints } from '../../utils/view-breakpoints';
+import { wrappedViewBreakpoints } from '../../utils/view-breakpoints';
 
 @Component({
   tag: 'already-col',
@@ -43,13 +43,13 @@ export class AlreadyCol implements ComponentInterface {
 
   @Method()
   async rowWidthChanged(width: number) {
-    if (width >= viewBreakpoints.xl) {
+    if (width >= wrappedViewBreakpoints.xl) {
       this.fraction = this.actualXl;
-    } else if (width >= viewBreakpoints.lg) {
+    } else if (width >= wrappedViewBreakpoints.lg) {
       this.fraction = this.actualLg;
-    } else if (width >= viewBreakpoints.md) {
+    } else if (width >= wrappedViewBreakpoints.md) {
       this.fraction = this.actualMd;
-    } else if (width >= viewBreakpoints.sm) {
+    } else if (width >= wrappedViewBreakpoints.sm) {
       this.fraction = this.actualSm;
     } else {
       this.fraction = this.actualXs;
