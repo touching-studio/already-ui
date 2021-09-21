@@ -18,19 +18,19 @@ export class AlreadyCol implements ComponentInterface {
   }
 
   private get actualSm() {
-    return this.sm || this.xs;
+    return this.sm || this.actualXs;
   }
 
   private get actualMd() {
-    return this.md || this.sm;
+    return this.md || this.actualSm;
   }
 
   private get actualLg() {
-    return this.lg || this.md;
+    return this.lg || this.actualMd;
   }
 
   private get actualXl() {
-    return this.xl || this.lg;
+    return this.xl || this.actualLg;
   }
 
   @Element() hostElement: HTMLAlreadyColElement;
