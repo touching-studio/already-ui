@@ -1,9 +1,7 @@
 :host {
-  --fraction: 4;
-
-  display: inline-flex;
+  display: block;
+  float: left;
   width: calc(100% / var(--base-column-count) * var(--fraction));
-  margin-right: -5px; /* TODO temp fix of item margins */
 }
 
 ::slotted(*) {
