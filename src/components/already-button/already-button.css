@@ -8,7 +8,7 @@
   --border-radius: .15rem;
   --padding: .5rem;
 
-  display: block;
+  display: inline-block;
 }
 
 button {
@@ -21,26 +21,21 @@ button {
   background: var(--background);
 }
 
+button.outline {
+  background-color: var(--color);
+  color: var(--background);
+}
+
+button.clear {
+  color: var(--background);
+  border: 0;
+  background-color:  var(--color);
+}
+
 button:hover {
   background: var(--background-hover);
 }
 
 button:active {
   background: var(--background-active);
-}
-
-.outline {
-  background-color: var(--color);
-  color: var(--background);
-}
-
-.clear {
-  color: var(--background);
-  border: 0;
-  background-color:  var(--color);
-}
-
-.clear:hover {
-  background-color:  var(--color);
-  text-decoration: underline;
 }
