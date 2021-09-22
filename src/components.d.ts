@@ -5,8 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ButtonVariant } from "./components/already-button/already-button";
 export namespace Components {
     interface AlreadyButton {
+        "variant": ButtonVariant;
     }
     interface AlreadyCard {
     }
@@ -75,6 +77,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AlreadyButton {
+        "variant"?: ButtonVariant;
     }
     interface AlreadyCard {
     }

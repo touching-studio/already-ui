@@ -1,4 +1,6 @@
-import { Component, Host, h, ComponentInterface } from '@stencil/core';
+import { Component, Host, h, ComponentInterface, Prop } from '@stencil/core';
+
+export type ButtonVariant = 'solid' | 'outline' | 'clear';
 
 @Component({
   tag: 'already-button',
@@ -7,14 +9,15 @@ import { Component, Host, h, ComponentInterface } from '@stencil/core';
 })
 export class AlreadyButton implements ComponentInterface {
 
+  @Prop({ reflect: true }) variant: ButtonVariant = 'solid';
+
   render() {
     return (
       <Host>
-        <button>
+        <button class={`${this.variant}`}>
           <slot></slot>
         </button>
       </Host>
     );
   }
-
 }

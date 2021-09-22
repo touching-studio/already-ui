@@ -8,7 +8,7 @@
   --border-radius: .15rem;
   --padding: .5rem;
 
-  display: block;
+  display: inline-block;
 }
 
 button {
@@ -21,10 +21,19 @@ button {
   background: var(--background);
 }
 
-button:hover {
-  background: var(--background-hover);
+button.outline {
+  background-color: var(--color);
+  color: var(--background);
 }
 
+button.clear {
+  color: var(--background);
+  border: 0;
+  background-color:  var(--color);
+}
+
+button:hover,
 button:active {
-  background: var(--background-active);
+  color: var(--color);
+  background: var(--background-hover);
 }
