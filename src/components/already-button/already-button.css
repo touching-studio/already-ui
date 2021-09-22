@@ -28,3 +28,19 @@ button:hover {
 button:active {
   background: var(--background-active);
 }
+
+.outline {
+  background-color: var(--color);
+  color: var(--background);
+}
+
+.clear {
+  color: var(--background);
+  border: 0;
+  background-color:  var(--color);
+}
+
+.clear:hover {
+  background-color:  var(--color);
+  text-decoration: underline;
+}
