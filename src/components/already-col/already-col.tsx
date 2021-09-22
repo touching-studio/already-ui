@@ -47,18 +47,24 @@ export class AlreadyCol implements ComponentInterface {
 
   @Method()
   async rowWidthChanged(width: number) {
-    if (width >= this.getWrappedViewBreakpoint('xxl')) {
-      this.fraction = this.actualXxl;
-    } else if (width >= this.getWrappedViewBreakpoint('xl')) {
-      this.fraction = this.actualXl;
-    } else if (width >= this.getWrappedViewBreakpoint('lg')) {
-      this.fraction = this.actualLg;
-    } else if (width >= this.getWrappedViewBreakpoint('md')) {
-      this.fraction = this.actualMd;
-    } else if (width >= this.getWrappedViewBreakpoint('sm')) {
-      this.fraction = this.actualSm;
-    } else {
-      this.fraction = this.actualXs;
+    switch (true) {
+      case (width >= this.getWrappedViewBreakpoint('xxl')):
+        this.fraction = this.actualXxl;
+        break;
+      case (width >= this.getWrappedViewBreakpoint('xl')):
+        this.fraction = this.actualXl;
+        break;
+      case (width >= this.getWrappedViewBreakpoint('lg')):
+        this.fraction = this.actualLg;
+        break;
+      case (width >= this.getWrappedViewBreakpoint('md')):
+        this.fraction = this.actualMd;
+        break;
+      case (width >= this.getWrappedViewBreakpoint('sm')):
+        this.fraction = this.actualSm;
+        break;
+      default:
+        this.fraction = this.actualXs;
     }
   }
 

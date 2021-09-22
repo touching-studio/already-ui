@@ -26,28 +26,38 @@ export class AlreadyContainer implements ComponentInterface {
     const resizeObserver = new ResizeObserver(entries => {
       for (let entry of entries) {
         const width = entry.contentRect.width;
-        if (width >= this.getViewBreakpoint('xxl')) {
-          updateCSSVariable('--content-max-width', `${this.getWrappedViewBreakpoint('xxl')}px`, this.hostElement);
-        } else if (width >= this.getViewBreakpoint('xl')) {
-          updateCSSVariable('--content-max-width', `${this.getWrappedViewBreakpoint('xl')}px`, this.hostElement);
-        } else if (width >= this.getViewBreakpoint('lg')) {
-          updateCSSVariable('--content-max-width', `${this.getWrappedViewBreakpoint('lg')}px`, this.hostElement);
-        } else if (width >= this.getViewBreakpoint('md')) {
-          updateCSSVariable('--content-max-width', `${this.getWrappedViewBreakpoint('md')}px`, this.hostElement);
-        } else if (width >= this.getViewBreakpoint('sm')) {
-          updateCSSVariable('--content-max-width', `${this.getWrappedViewBreakpoint('sm')}px`, this.hostElement);
-        } else {
-          updateCSSVariable('--content-max-width', `100%`, this.hostElement);
-        }
+        this.updateContentMaxWidthForViewBreakpoint(width);
       }
     });
     resizeObserver.observe(this.hostElement);
   }
 
+  private updateContentMaxWidthForViewBreakpoint(width: number) {
+    switch (true) {
+      case (width >= this.getViewBreakpoint('xxl')):
+        updateCSSVariable('--content-max-width', `${this.getWrappedViewBreakpoint('xxl')}px`, this.hostElement);
+        break;
+      case (width >= this.getViewBreakpoint('xl')):
+        updateCSSVariable('--content-max-width', `${this.getWrappedViewBreakpoint('xl')}px`, this.hostElement);
+        break;
+      case (width >= this.getViewBreakpoint('lg')):
+        updateCSSVariable('--content-max-width', `${this.getWrappedViewBreakpoint('lg')}px`, this.hostElement);
+        break;
+      case (width >= this.getViewBreakpoint('md')):
+        updateCSSVariable('--content-max-width', `${this.getWrappedViewBreakpoint('md')}px`, this.hostElement);
+        break;
+      case (width >= this.getViewBreakpoint('sm')):
+        updateCSSVariable('--content-max-width', `${this.getWrappedViewBreakpoint('sm')}px`, this.hostElement);
+        break;
+      default:
+        updateCSSVariable('--content-max-width', `100%`, this.hostElement);
+    }
+  }
+
   private getViewBreakpoint(name: string) {
     return +getComputedStyle(this.hostElement).getPropertyValue(`--${name}`);
   }
-  
+
   private getWrappedViewBreakpoint(name: string) {
     return +getComputedStyle(this.hostElement).getPropertyValue(`--wrapped-${name}`);
   }
