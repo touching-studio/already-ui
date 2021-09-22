@@ -1,4 +1,5 @@
 import { Component, Host, h, ComponentInterface, Element } from '@stencil/core';
+import { observeResize } from '../../utils/observe-resize';
 
 @Component({
   tag: 'already-row',
@@ -10,7 +11,13 @@ export class AlreadyRow implements ComponentInterface {
   @Element() hostElement: HTMLAlreadyRowElement;
 
   connectedCallback() {
-    this.initializeResizeHandler();
+    observeResize.call(
+      this,
+      this.hostElement,
+      [
+        this.notifyWidthChangeToColElements
+      ]
+    )
   }
 
   render() {
@@ -21,14 +28,8 @@ export class AlreadyRow implements ComponentInterface {
     );
   }
 
-  private initializeResizeHandler() {
-    const resizeObserver = new ResizeObserver(entries => {
-      for (let entry of entries) {
-        const width = entry.contentRect.width;
-        this.hostElement.querySelectorAll('already-col').forEach(colElement => colElement.rowWidthChanged(width));
-      }
-    });
-    resizeObserver.observe(this.hostElement);
+  private notifyWidthChangeToColElements(entry: ResizeObserverEntry) {
+    const width = entry.contentRect.width;
+    this.hostElement.querySelectorAll('already-col').forEach(colElement => colElement.rowWidthChanged(width));
   }
-
 }
