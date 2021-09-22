@@ -1,11 +1,11 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, ComponentInterface } from '@stencil/core';
 
 @Component({
   tag: 'already-card',
   styleUrl: 'already-card.css',
   shadow: true,
 })
-export class AlreadyCard {
+export class AlreadyCard implements ComponentInterface {
 
   render() {
     return (

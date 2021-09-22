@@ -3,7 +3,7 @@
   --border-color: hsl(0, 0%, 80%);
   --border-width: 1px;
   --border-radius: .15rem;
-  --shadow-depth: .1rem;
+  --shadow-depth: 0;
   --shadow-color: hsl(0, 0%, 50%);
   --padding: .5rem;
 
