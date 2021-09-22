@@ -1,6 +1,5 @@
 import { Component, Host, h, ComponentInterface, Prop, Element, Method } from '@stencil/core';
 import { updateCSSVariable } from '../../utils/update-css-variable';
-import { wrappedViewBreakpoints } from '../../utils/view-breakpoints';
 
 @Component({
   tag: 'already-col',
@@ -48,15 +47,15 @@ export class AlreadyCol implements ComponentInterface {
 
   @Method()
   async rowWidthChanged(width: number) {
-    if (width >= wrappedViewBreakpoints.xxl) {
+    if (width >= this.getWrappedViewBreakpoint('xxl')) {
       this.fraction = this.actualXxl;
-    } else if (width >= wrappedViewBreakpoints.xl) {
+    } else if (width >= this.getWrappedViewBreakpoint('xl')) {
       this.fraction = this.actualXl;
-    } else if (width >= wrappedViewBreakpoints.lg) {
+    } else if (width >= this.getWrappedViewBreakpoint('lg')) {
       this.fraction = this.actualLg;
-    } else if (width >= wrappedViewBreakpoints.md) {
+    } else if (width >= this.getWrappedViewBreakpoint('md')) {
       this.fraction = this.actualMd;
-    } else if (width >= wrappedViewBreakpoints.sm) {
+    } else if (width >= this.getWrappedViewBreakpoint('sm')) {
       this.fraction = this.actualSm;
     } else {
       this.fraction = this.actualXs;
@@ -74,5 +73,10 @@ export class AlreadyCol implements ComponentInterface {
       </Host>
     );
   }
-  
+
+
+  private getWrappedViewBreakpoint(name: string) {
+    return +getComputedStyle(this.hostElement).getPropertyValue(`--wrapped-${name}`);
+  }
+
 }

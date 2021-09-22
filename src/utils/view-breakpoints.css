@@ -1,0 +1,15 @@
+:host {
+  --xs: 0;
+  --sm: 540;
+  --md: 720;
+  --lg: 960;
+  --xl: 1140;
+  --xxl: 1320;
+
+  --wrapped-xs: 0;
+  --wrapped-sm: 576;
+  --wrapped-md: 768;
+  --wrapped-lg: 992;
+  --wrapped-xl: 1200;
+  --wrapped-xxl: 1400;
+}
