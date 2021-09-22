@@ -24,7 +24,9 @@ export class AlreadyContainer implements ComponentInterface {
   render() {
     return (
       <Host>
-        <slot></slot>
+        <div>
+          <slot></slot>
+        </div>
       </Host>
     );
   }

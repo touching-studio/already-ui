@@ -4,7 +4,7 @@
   display: block;
 }
 
-::slotted(*) {
+div {
   max-width: var(--content-max-width);
   margin: auto;
 }
