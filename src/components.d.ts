@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AlreadyCard {
+    }
     interface AlreadyCol {
         "lg": number;
         "md": number;
@@ -24,6 +26,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLAlreadyCardElement extends Components.AlreadyCard, HTMLStencilElement {
+    }
+    var HTMLAlreadyCardElement: {
+        prototype: HTMLAlreadyCardElement;
+        new (): HTMLAlreadyCardElement;
+    };
     interface HTMLAlreadyColElement extends Components.AlreadyCol, HTMLStencilElement {
     }
     var HTMLAlreadyColElement: {
@@ -49,6 +57,7 @@ declare global {
         new (): HTMLAlreadyRowElement;
     };
     interface HTMLElementTagNameMap {
+        "already-card": HTMLAlreadyCardElement;
         "already-col": HTMLAlreadyColElement;
         "already-container": HTMLAlreadyContainerElement;
         "already-grid": HTMLAlreadyGridElement;
@@ -56,6 +65,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface AlreadyCard {
+    }
     interface AlreadyCol {
         "lg"?: number;
         "md"?: number;
@@ -72,6 +83,7 @@ declare namespace LocalJSX {
     interface AlreadyRow {
     }
     interface IntrinsicElements {
+        "already-card": AlreadyCard;
         "already-col": AlreadyCol;
         "already-container": AlreadyContainer;
         "already-grid": AlreadyGrid;
@@ -82,6 +94,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "already-card": LocalJSX.AlreadyCard & JSXBase.HTMLAttributes<HTMLAlreadyCardElement>;
             "already-col": LocalJSX.AlreadyCol & JSXBase.HTMLAttributes<HTMLAlreadyColElement>;
             "already-container": LocalJSX.AlreadyContainer & JSXBase.HTMLAttributes<HTMLAlreadyContainerElement>;
             "already-grid": LocalJSX.AlreadyGrid & JSXBase.HTMLAttributes<HTMLAlreadyGridElement>;

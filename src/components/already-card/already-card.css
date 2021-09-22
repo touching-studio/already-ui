@@ -1,0 +1,23 @@
+:host {
+  --background: hsl(0, 0%, 98%);
+  --border-color: hsl(0, 0%, 80%);
+  --border-width: 1px;
+  --border-radius: .15rem;
+  --shadow-depth: .1rem;
+  --shadow-color: hsl(0, 0%, 50%);
+  --padding: .5rem;
+
+  display: block;
+  margin: .25rem;
+}
+
+div {
+  box-sizing: border-box;
+  background: var(--background);
+  height: 100%;
+  width: 100%;
+  padding: var(--padding);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 var(--shadow-depth) var(--shadow-depth) 0 var(--shadow-color);
+}
