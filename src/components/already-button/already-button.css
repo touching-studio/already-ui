@@ -1,0 +1,30 @@
+:host {
+  --color: hsl(0, 0%, 100%);
+  --background: hsl(220, 100%, 60%);
+  --background-hover: hsl(220, 100%, 65%);
+  --background-active: hsl(220, 100%, 55%);
+  --border-color: hsl(220, 100%, 30%);
+  --border-width: 1px;
+  --border-radius: .15rem;
+  --padding: .5rem;
+
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  color: var(--color);
+  font-weight: bold;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--border-color);
+  background: var(--background);
+}
+
+button:hover {
+  background: var(--background-hover);
+}
+
+button:active {
+  background: var(--background-active);
+}
