@@ -43,6 +43,19 @@
       </already-row>
     </already-grid>
     <already-button>Button</already-button>
+    <div id="markdown-section">
+      <textarea id="markdown-input" rows="10" style="width: 100%;"
+        oninput="updateMarkdownContent()">### Write your markdown here</textarea>
+      <already-card>
+        <already-markdown id="markdown-presenter"></already-markdown>
+      </already-card>
+      <script>
+        function updateMarkdownContent() {
+          document.querySelector('#markdown-presenter').src = document.querySelector('#markdown-input').value;
+        }
+        updateMarkdownContent();
+      </script>
+    </div>
   </already-container>
 </body>
 
