@@ -24,6 +24,9 @@ export namespace Components {
     interface AlreadyGrid {
         "baseColumnCount": number;
     }
+    interface AlreadyMarkdown {
+        "src": string;
+    }
     interface AlreadyRow {
     }
 }
@@ -58,6 +61,12 @@ declare global {
         prototype: HTMLAlreadyGridElement;
         new (): HTMLAlreadyGridElement;
     };
+    interface HTMLAlreadyMarkdownElement extends Components.AlreadyMarkdown, HTMLStencilElement {
+    }
+    var HTMLAlreadyMarkdownElement: {
+        prototype: HTMLAlreadyMarkdownElement;
+        new (): HTMLAlreadyMarkdownElement;
+    };
     interface HTMLAlreadyRowElement extends Components.AlreadyRow, HTMLStencilElement {
     }
     var HTMLAlreadyRowElement: {
@@ -70,6 +79,7 @@ declare global {
         "already-col": HTMLAlreadyColElement;
         "already-container": HTMLAlreadyContainerElement;
         "already-grid": HTMLAlreadyGridElement;
+        "already-markdown": HTMLAlreadyMarkdownElement;
         "already-row": HTMLAlreadyRowElement;
     }
 }
@@ -91,6 +101,9 @@ declare namespace LocalJSX {
     interface AlreadyGrid {
         "baseColumnCount"?: number;
     }
+    interface AlreadyMarkdown {
+        "src"?: string;
+    }
     interface AlreadyRow {
     }
     interface IntrinsicElements {
@@ -99,6 +112,7 @@ declare namespace LocalJSX {
         "already-col": AlreadyCol;
         "already-container": AlreadyContainer;
         "already-grid": AlreadyGrid;
+        "already-markdown": AlreadyMarkdown;
         "already-row": AlreadyRow;
     }
 }
@@ -111,6 +125,7 @@ declare module "@stencil/core" {
             "already-col": LocalJSX.AlreadyCol & JSXBase.HTMLAttributes<HTMLAlreadyColElement>;
             "already-container": LocalJSX.AlreadyContainer & JSXBase.HTMLAttributes<HTMLAlreadyContainerElement>;
             "already-grid": LocalJSX.AlreadyGrid & JSXBase.HTMLAttributes<HTMLAlreadyGridElement>;
+            "already-markdown": LocalJSX.AlreadyMarkdown & JSXBase.HTMLAttributes<HTMLAlreadyMarkdownElement>;
             "already-row": LocalJSX.AlreadyRow & JSXBase.HTMLAttributes<HTMLAlreadyRowElement>;
         }
     }
