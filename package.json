@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
+    "build.react": "stencil build --config stencil.config.react.ts",
     "start": "stencil build --dev --watch --serve",
     "start.no-open": "stencil build --dev --watch --serve --no-open",
     "test": "stencil test --spec --e2e",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@stencil/core": "^2.7.0",
+    "@stencil/react-output-target": "^0.1.0",
     "@types/jest": "^26.0.24",
     "@types/marked": "^3.0.1",
     "jest": "^27.2.5",
