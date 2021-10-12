@@ -8,12 +8,14 @@ export const config: Config = {
       componentCorePackage: 'already-ui',
       proxiesFile: '../already-ui-react/src/components.ts',
       includeDefineCustomElements: true,
+      loaderDir: '../loader',
     }),
     {
       type: 'dist',
+      esmLoaderPath: '../loader',
     },
     {
-      type: 'dist-custom-elements-bundle',
+      type: 'dist-custom-elements-bundle'
     },
   ],
 };
